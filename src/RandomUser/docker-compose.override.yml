@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  userrandom.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:5555;http://+:80
+    ports:
+      - "5555:80"
+      - "5555"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
